@@ -4,7 +4,8 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      metal:import="main.html" use-macro='macros["main"]'>
+      metal:import="/home/eugeneai/projects/RSPO/design-studio_one-page-template/build/page.pt"
+      metal:use-macro='macros["main"]'>
     <metal:tag metal:fill-slot="page">Hello World!<p/>
     </metal:tag>
 </html>
