@@ -24,7 +24,8 @@
         <metal:block metal:define-slot="head">
         </metal:block>
     </head>
-    <body metal:define-slot="page">
+    <body>
+      <metal:slot metal:define-slot="page">
         <!-- $Page header--><header class="page-header js-header"><div class="page-header__inner">
         <div class="page-header__logo">
             <h1>Bak-one</h1> <span>One page flat template</span>
@@ -133,5 +134,6 @@
         </div></section><!-- $Page footer--><footer class="page-footer"><div class="page-footer__inner">
             <span class="page-footer__copyright">© Copyright 2013 Bak-One | One Page Flat Template</span><a class="page-footer__gotop js-anchor" href="#home">Go to top</a>
         </div></footer><script src="static/js/body.min.js"></script>
+        </metal:slot>
     </body>
 </html>
