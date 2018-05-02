@@ -5,13 +5,13 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:zmetal="http://example.org/nothing"
-      metal:import="/home/eugeneai/projects/RSPO/design-studio_one-page-template/build/page.pt"
+      metal:import="@TEMPLATEDIR@page.pt"
       metal:use-macro='macros["main"]'
       >
   <metal:tag metal:fill-slot="head"><!-- Hello --></metal:tag>
 
   <metal:tag metal:fill-slot="page"><h1>Hello World!</h1>
-    <p tal:content="view.Title">
+    <p tal:content="model.Name">
     </p>
   </metal:tag>
 
