@@ -10,8 +10,8 @@
       >
   <metal:tag metal:fill-slot="head"><!-- Hello --></metal:tag>
 
-  <metal:tag metal:fill-slot="page"><h1>Hello World!</h1>
-    <p tal:content="view.Title">
+  <metal:tag metal:fill-slot="page"><h1 tal:content="view.Title">Hello World!</h1>
+    <p tal:content="view.Name">
     </p>
   </metal:tag>
 
