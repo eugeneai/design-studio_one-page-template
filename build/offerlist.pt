@@ -18,8 +18,8 @@
               </tr>
           </thead>
           <tbody>
-              <tr tal:repeat="obj model.Objects">
-                  <td><a tal:content="obj">Суть предложения</a></td>
+              <tr tal:repeat="offer model.Objects">
+                  <td><a tal:content="offer.Object.Address">Суть предложения</a></td>
               </tr>
           </tbody>
       </table>
