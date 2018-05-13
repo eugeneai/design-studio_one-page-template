@@ -10,18 +10,16 @@
       >
   <metal:tag metal:fill-slot="head"><!-- Hello --></metal:tag>
 
-  <metal:tag metal:fill-slot="page"><h1 tal:content="view.Title">Hello World!</h1>
-      <table>
-          <thead>
-              <tr>
-                  <th>Предложение</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr tal:repeat="offer model.Objects">
-                  <td><a tal:content="offer.Object.Address">Суть предложения</a></td>
-              </tr>
-          </tbody>
-      </table>
+  <metal:tag metal:fill-slot="content">
+      <metal:tag metal:use-macro='macros["table"]'>
+      <metal:tag metal:fill-slot="header">
+          <th>Предложение</th>
+      </metal:tag>
+      <metal:tag metal:fill-slot="body">
+          <tr tal:repeat="offer model.Objects">
+              <td><a tal:content="offer.Object.Address">Суть предложения</a></td>
+          </tr>
+      </metal:tag>
+    </metal:tag>
   </metal:tag>
 </html>

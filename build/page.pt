@@ -10,7 +10,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Home | Design studio template</title>
+        <title tal:content="view.Title">Home | Design studio template</title>
         <meta name="description" content="Page-specific description">
         <meta name="keywords" content="Page-specific keywords">
         <link rel="shortcut icon" href="favicon.ico">
@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="stylesheet" href="static/css/screen.min.css">
         <link rel="stylesheet" href="static/css/custom.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
         <metal:block metal:define-slot="head">
         </metal:block>
     </head>
@@ -36,10 +37,16 @@
             <li><a class="page-header__nav-link js-anchor js-link" href="#team">About</a></li>
             <li><a class="page-header__nav-link js-anchor js-link" href="#contact">Contact</a></li>
         </ul></nav>
-        </div></header><!-- $Promo section--><section class="promo js-jumbo" id="home"><h2 class="promo__title">We build<span>brand</span>
-        </h2>
-        <p class="promo__descr">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-        <a class="promo__btn" href="#">Learn more</a><a class="promo__go-next js-anchor" href="#portfolio">Scroll down</a></section><!-- $Portfolio section--><section class="portfolio js-portfolio" id="portfolio"><div class="portfolio__inner">
+        </div></header><!-- $Promo section-->
+        <section class="promo js-jumbo" id="home">
+            <h2 class="promo__title" tal:content="view.Title">We build<span>brand</span></h2>
+        <p class="promo__descr" tal:replace="string:">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+        <a class="promo__btn" href="#" tal:replace="string:">Learn more</a><a class="promo__go-next js-anchor" href="#portfolio" tal:replace="string:">Scroll down</a>
+        </section><!-- $Portfolio section-->
+        <section class="portfolio js-portfolio" id="portfolio">
+            <div class="portfolio__inner">
+                <metal:block metal:define-slot="content">
+
             <h2 class="portfolio__title">Portfolio</h2>
             <p class="portfolio__descr">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
             <nav class="portfolio__filter"><ul>
@@ -73,7 +80,11 @@
                     <span class="portfolio__item-title">Example title</span><span class="portfolio__item-cat">Web design</span>
                 </div></a></li>
             </ul>
-        </div></section><!-- $Team section--><section class="team" id="team"><div class="team__inner">
+                </metal:block>
+        </div>
+        </section><!-- $Team section-->
+        <span tal:content='string:'>
+        <section class="team" id="team"><div class="team__inner">
             <h2 class="team__title">About us</h2>
             <p class="team__descr">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
             <div class="team__member">
@@ -112,7 +123,9 @@
                     <li><a class="team__member-icon db" href="#">I am on Dribble</a></li>
                 </ul>
             </div>
-        </div></section><!-- $Contact section--><section class="contact" id="contact"><div class="contact__inner">
+        </div></section><!-- $Contact section-->
+        <section class="contact" id="contact">
+            <div class="contact__inner">
             <h2 class="contact__title">Contact us</h2>
             <p class="contact__descr">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
             <form class="contact__form" action="#" method="post">
@@ -131,9 +144,58 @@
                 <div class="contact__card-item fax tel">+123<span class="type"> (FAX) </span>0011223</div>
                 <a class="contact__card-item email" href="#">info@companyname.com</a>
             </div>
-        </div></section><!-- $Page footer--><footer class="page-footer"><div class="page-footer__inner">
+        </div>
+        </section><!-- $Page footer-->
+        </span>
+        <footer class="page-footer"><div class="page-footer__inner">
             <span class="page-footer__copyright">© Copyright 2013 Bak-One | One Page Flat Template</span><a class="page-footer__gotop js-anchor" href="#home">Go to top</a>
         </div></footer><script src="static/js/body.min.js"></script>
-        </metal:slot>
+      </metal:slot>
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+      <!-- Popper JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <template tal:replace="string:">
+        <metal:tag metal:define-macro="table">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <metal:tag metal:define-slot="header">
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                    </metal:tag>
+                </tr>
+            </thead>
+            <tbody>
+                <metal:tag metal:define-slot="body">
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+                </metal:tag>
+            </tbody>
+        </table>
+        </metal:tag>
+    </template>
     </body>
 </html>
