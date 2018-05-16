@@ -4,8 +4,9 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      metal:define-macro="main"
->
+      metal:define-macro="main" data-remark="Шаблон страницы"
+      >
+  <!-- Шаблоны страницы и таблицы. -->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +22,7 @@
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="stylesheet" href="static/css/screen.min.css">
         <link rel="stylesheet" href="static/css/custom.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
         <metal:block metal:define-slot="head">
         </metal:block>
     </head>
@@ -149,22 +150,21 @@
         </span>
         <footer class="page-footer"><div class="page-footer__inner">
             <span class="page-footer__copyright">© Copyright 2013 Bak-One | One Page Flat Template</span><a class="page-footer__gotop js-anchor" href="#home">Go to top</a>
-        </div></footer><script src="static/js/body.min.js"></script>
+        </div></footer>
       </metal:slot>
-      <!-- jQuery library -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-      <!-- Popper JS -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+      <script src="static/js/body.min.js"></script>
 
-      <!-- Latest compiled JavaScript -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-    <template tal:replace="string:">
-        <metal:tag metal:define-macro="table">
-        <table class="table">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <template tal:replace="string:" name="Шаблоны всякие разные">
+        <metal:tag metal:define-macro="table" data-remark="Шаблон таблицы">
+        <table class="table  text-sm-left">
             <thead class="thead-dark">
                 <tr>
                     <metal:tag metal:define-slot="header">
+                    <!-- Это все не отображается при использовании -->
                     <th scope="col">#</th>
                     <th scope="col">First</th>
                     <th scope="col">Last</th>
