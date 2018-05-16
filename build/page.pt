@@ -160,7 +160,7 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <template tal:replace="string:" name="Шаблоны всякие разные">
         <metal:tag metal:define-macro="table" data-remark="Шаблон таблицы">
-        <table class="table  text-sm-left">
+        <table class="table text-sm-left">
             <thead class="thead-dark">
                 <tr>
                     <metal:tag metal:define-slot="header">
