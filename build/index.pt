@@ -11,8 +11,8 @@
   <metal:tag metal:fill-slot="head"><!-- Hello --></metal:tag>
 
   <metal:tag metal:fill-slot="content">
-    <p tal:content="view.Name">
-    </p>
+    <h1 tal:content="view.Name">
+    </h1>
   </metal:tag>
 
 </html>
