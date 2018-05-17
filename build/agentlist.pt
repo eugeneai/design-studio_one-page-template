@@ -23,20 +23,13 @@
       </metal:tag>
       <metal:tag metal:fill-slot="body">
         <tr tal:repeat="agent model.Objects">
-          <!--
-              <span tal:omit-tag="default" tal:define="obj offer.Object; objview view.AsObjectView(offer)">
-              <th tal:content="objview.RuCategory">Квартира</th>
-              <td tal:content="objview.ROR" class="text-sm-right">9к</td>
-              <td tal:content="obj.Area">190</td>
-              <td title="Завеличи (Псков)"
-                  tal:attributes="title obj.Location.SubLocalityName"
-              ><strong tal:content="objview.SubLoc" class="rspo-blue">Свердловкий</strong></td>
-              <td><a tal:content="obj.Address" tal:attributes="href obj.GUID" class="text-sm-left">Маршала Конева улица...</a></td>
-              <td tal:content="objview.RuType">Дуб</td>
-              <td tal:content="objview.FOF">Этаж/Этажи</td>
-              <td class="text-sm-right"><strong tal:content="objview.Price" >1 000 000</strong></td>
-              </span>
-              -->
+          <span tal:omit-tag="default" tal:define="av view.AsAgentView(agent)">
+              <th tal:content="agent.Name">Имя</th>
+              <td tal:content="agent.NickName">Ник</td>
+              <td tal:content="agent.Phone">+7 914 870 XX XX</td>
+              <td tal:content="agent.Email">332211@gggg.ru</td>
+              <td tal:content="av.RuRole">Слесарь 80 lvl</td>
+          </span>
         </tr>
       </metal:tag>
     </metal:tag>
