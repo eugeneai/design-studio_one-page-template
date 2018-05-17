@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:zmetal="http://example.org/nothing"
+      metal:import="@TEMPLATEDIR@page.pt"
+      metal:use-macro='macros["main"]'
+      >
+    <metal:tag metal:fill-slot="head">
+    </metal:tag>
+
+  <!-- Шаблон, отображающий агентов -->
+  <metal:tag metal:fill-slot="content">
+      <metal:tag metal:use-macro='macros["table"]'>
+          <metal:tag metal:fill-slot="header">
+              <th>Агент</th>
+              <th>Ник</th>
+              <th>Тел</th>
+              <th>E-mail</th>
+              <th>Роль</th>
+      </metal:tag>
+      <metal:tag metal:fill-slot="body">
+        <tr tal:repeat="agent model.Objects">
+          <!--
+              <span tal:omit-tag="default" tal:define="obj offer.Object; objview view.AsObjectView(offer)">
+              <th tal:content="objview.RuCategory">Квартира</th>
+              <td tal:content="objview.ROR" class="text-sm-right">9к</td>
+              <td tal:content="obj.Area">190</td>
+              <td title="Завеличи (Псков)"
+                  tal:attributes="title obj.Location.SubLocalityName"
+              ><strong tal:content="objview.SubLoc" class="rspo-blue">Свердловкий</strong></td>
+              <td><a tal:content="obj.Address" tal:attributes="href obj.GUID" class="text-sm-left">Маршала Конева улица...</a></td>
+              <td tal:content="objview.RuType">Дуб</td>
+              <td tal:content="objview.FOF">Этаж/Этажи</td>
+              <td class="text-sm-right"><strong tal:content="objview.Price" >1 000 000</strong></td>
+              </span>
+              -->
+        </tr>
+      </metal:tag>
+    </metal:tag>
+  </metal:tag>
+</html>

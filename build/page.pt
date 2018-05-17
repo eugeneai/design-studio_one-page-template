@@ -23,6 +23,11 @@
         <link rel="stylesheet" href="static/css/screen.min.css">
         <link rel="stylesheet" href="static/css/custom.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+        <style>
+         .rspo-blue {
+             color: #00f;
+         } // TODO: А лучше в отдельный .css-файл его впихать.
+        </style>
         <metal:block metal:define-slot="head">
         </metal:block>
     </head>
