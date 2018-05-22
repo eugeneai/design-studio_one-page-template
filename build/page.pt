@@ -35,14 +35,19 @@
       <metal:slot metal:define-slot="page">
         <!-- $Page header--><header class="page-header js-header"><div class="page-header__inner">
         <div class="page-header__logo">
-            <h1>Bak-one</h1> <span>One page flat template</span>
+            <h1 tal:content="appview.Title">Bak-one</h1> <span tal:content="view.Title">One page flat template</span>
         </div>
         <nav class="page-header__nav js-nav"><ul>
-            <li><a class="page-header__nav-link js-anchor js-link is-active" href="#home">Home</a></li>
-            <li><a class="page-header__nav-link js-anchor js-link" href="#portfolio">Portfolio</a></li>
-            <li><a class="page-header__nav-link js-anchor js-link" href="#team">About</a></li>
-            <li><a class="page-header__nav-link js-anchor js-link" href="#contact">Contact</a></li>
-        </ul></nav>
+            <!-- class="is-active" -->
+            <span tal:repeat="item appview.Menu">
+                <li><a class="page-header__nav-link js-anchor js-link"
+                       href="#home"
+                       tal:content="item.First"
+                       tal:attributes="href item.Second"
+                    >Home</a></li>
+            </span>
+          </ul>
+        </nav>
         </div></header><!-- $Promo section-->
         <section class="promo js-jumbo" id="home">
             <h2 class="promo__title" tal:content="view.Title">We build<span>brand</span></h2>

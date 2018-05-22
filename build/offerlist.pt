@@ -38,7 +38,7 @@
               <td title="Завеличи (Псков)"
                   tal:attributes="title obj.Location.SubLocalityName"
               ><strong tal:content="objview.SubLoc" class="rspo-blue">Свердловкий</strong></td>
-              <td><a tal:content="obj.Address" tal:attributes="href obj.GUID" class="text-sm-left">Маршала Конева улица...</a></td>
+              <td><a tal:content="obj.Address" tal:attributes="href string:/offer/${obj.GUID}" class="text-sm-left">Маршала Конева улица...</a></td>
               <td tal:content="objview.RuType">Дуб</td>
               <td tal:content="objview.FOF">Этаж/Этажи</td>
               <td class="text-sm-right"><strong tal:content="objview.Price" >1 000 000</strong></td>
