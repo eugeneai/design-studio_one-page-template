@@ -11,9 +11,51 @@
   <metal:tag metal:fill-slot="head"><!-- Hello --></metal:tag>
 
   <metal:tag metal:fill-slot="content">
-    <h1 tal:content="view.Name">
-    </h1>
-    Это экран с конкретным предложением!!!!
+      <h1 tal:content="view.Title">Информация по квартире</h1>
+      <span tal:omit-tag="default"
+            tal:define="obj view.Object; objview view.ObjView">
+          <metal:tag metal:use-macro='macros["table"]'>
+              <metal:tag metal:fill-slot="header">
+              </metal:tag>
+              <metal:tag metal:fill-slot="body">
+                  <tr>
+                      <th>Объект</th>
+                      <th tal:content="objview.RuCategory">Квартира</th>
+                  </tr>
+                  <tr>
+                      <th>Комнат</th>
+                      <td tal:content="objview.ROR" class="text-sm-right">9к</td>
+                  </tr>
+                  <tr>
+                      <th>Площадь</th>
+                      <td tal:content="obj.Area">190</td>
+                  </tr>
+                  <tr>
+                      <th>Район</th>
+                      <td title="Завеличи (Псков)"
+                          tal:attributes="title obj.Location.SubLocalityName"
+                      ><strong tal:content="objview.SubLoc" class="rspo-blue">Свердловкий</strong>
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>Адрес</th>
+                      <td tal:content="obj.Address" class="text-sm-left">Маршала Конева улица...</td>
+                  </tr>
+                  <tr>
+                      <th>Материал</th>
+                      <td tal:content="objview.RuType">Секвойя</td>
+                  </tr>
+                  <tr>
+                      <th>Этаж</th>
+                      <td tal:content="objview.FOF">Этаж/Этажи</td>
+                  </tr>
+                  <tr>
+                      <th>Цена</th>
+                      <td class="text-sm-right"><strong tal:content="objview.Price" >1 000 000</strong></td>
+                  </tr>
+              </metal:tag>
+          </metal:tag>
+          <span tal:replace="string:---${obj.ImageURL}+++"/>
+      </span>
   </metal:tag>
-
 </html>
