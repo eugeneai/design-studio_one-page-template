@@ -49,12 +49,25 @@
           </ul>
         </nav>
         </div></header><!-- $Promo section-->
-        <section class="promo js-jumbo" id="home">
+        <section class="promo js-jumbo" id="home" tal:replace="nothing">
             <h2 class="promo__title" tal:content="view.Title">We build<span>brand</span></h2>
         <p class="promo__descr" tal:replace="string:">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
         <a class="promo__btn" href="#" tal:replace="string:">Learn more</a><a class="promo__go-next js-anchor" href="#portfolio" tal:replace="string:">Scroll down</a>
         </section><!-- $Portfolio section-->
         <section class="portfolio js-portfolio" id="portfolio">
+            <metal:tag metal:define-macro="alert">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert"
+                     tal:condition="message.Exists"
+                     tal:attributes="class string:alert alert-${message.Alert} alert-dismissible fade show"
+                >
+                    <strong tal:content="message.Msg"
+                    >Holy guacamole!</strong> <span
+                                                  tal:replace="message.Message">You should check in on some of those fields below.</span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </metal:tag>
             <div class="portfolio__inner">
                 <metal:block metal:define-slot="content">
 
