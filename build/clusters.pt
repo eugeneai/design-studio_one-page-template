@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:zmetal="http://example.org/nothing"
+      metal:import="@TEMPLATEDIR@page.pt"
+      metal:use-macro='macros["main"]'
+      >
+  <metal:tag>
+      <style>
+       .btn-check-objs {
+           width:100pt;
+           color:white;
+           font-weight:bold;
+       }
+      </style>
+  </metal:tag>
+  <!-- Шаблон, отображающий предложения -->
+    <metal:tag metal:fill-slot="content">
+        <form action="/analysis" method="POST" class="text-sm-left">
+      <metal:tag metal:use-macro='macros["table"]'>
+          <metal:tag metal:fill-slot="header">
+              <th>Номер</th>
+              <th>Название</th>
+              <th>Кол-во объектов</th>
+      </metal:tag>
+      <metal:tag metal:fill-slot="body">
+          <tr tal:repeat="obj model.Objects">
+              <th tal:content="obj.Cluster">0</th>
+              <td ><input name="cluster-X"
+                          class="form-control"
+                          tal:attributes="name string:cluster-${obj.Cluster}; value obj.Name"
+                   ></td>
+              <td><strong><a tal:content="view.CountObjects(obj)"
+                             class="btn btn-light btn-check-objs" target="_blank"
+                             tal:attributes="href string:/offers/${obj.Cluster}"
+                          >19023424</a></strong>
+              </td>
+          </tr>
+      </metal:tag>
+      </metal:tag>
+      <button type="submit" class="btn btn-primary" name="renew">Обновить</button>
+      <div class="form-group">
+          <label for="k">Кол-во кластеров</label>
+          <input name="k" id="k" value="5"  class="form-control" >
+      </div>
+      <button type="submit" class="btn btn-primary" name="reconstruct">Перестроить кластер</button>
+        </form>
+
+        <form action="/clustering" method="POST" class="text-sm-left">
+            <div class="form-group">
+                <label for="max">Максимальное количество квартир в выборке</label>
+                <input name="max"  class="form-control" id="max" value="100">
+            </div>
+            <button type="submit" class="btn btn-primary" name="recalc">Обновить</button>
+        </form>
+  </metal:tag>
+</html>
