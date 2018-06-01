@@ -44,7 +44,7 @@
       <button type="submit" class="btn btn-primary" name="renew">Обновить</button>
       <div class="form-group">
           <label for="k">Кол-во кластеров</label>
-          <input name="k" id="k" value="5"  class="form-control" >
+          <input name="numclusters" id="k" value="5"  class="form-control" >
       </div>
       <button type="submit" class="btn btn-primary" name="reconstruct">Перестроить кластер</button>
         </form>
