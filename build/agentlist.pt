@@ -20,6 +20,7 @@
               <th>Тел</th>
               <th>E-mail</th>
               <th>Роль</th>
+              <th>GUID</th>
       </metal:tag>
       <metal:tag metal:fill-slot="body">
         <tr tal:repeat="agent model.Objects">
@@ -29,6 +30,7 @@
               <td tal:content="agent.Phone">+7 914 870 XX XX</td>
               <td tal:content="agent.Email">332211@gggg.ru</td>
               <td tal:content="av.RuRole">Слесарь 80 lvl</td>
+              <td tal:content="agent.GUID">123123-123123-123-123-1123</td>
           </span>
         </tr>
       </metal:tag>
