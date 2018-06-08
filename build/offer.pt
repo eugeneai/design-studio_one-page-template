@@ -80,6 +80,37 @@
             </td>
           </tr>
         </table>
-      </span>
+        </span>
+        <div id="rs-table">
+        </div>
+
+        <hr/>
+        <style>
+         .ajax_loader i{
+             left:50%;
+             top:50%;
+         }
+        </style>
+        <div id="result-display" tal:attributes="data-guid model.GUID">
+            <div class="ajax_loader"><i class="fa fa-spinner fa-spin fa-2x"></i></div>
+        </div>
+  </metal:tag>
+  <metal:tag metal:fill-slot="scripts">
+      <script type="text/javascript">
+       $(document).ready(function(){
+           // $("#result-display").text("asd");
+           setTimeout(function () {
+               var guid = $("#result-display").data("guid");
+               $.ajax({
+                   url: "/sneak/"+guid,
+                   data: {},
+                   success: function(resdata, textStatus, jqXHR) {
+                       $("#result-display").html(resdata);
+                   },
+                   dataType: String
+               });
+           }, 2000);
+       });
+      </script>
   </metal:tag>
 </html>

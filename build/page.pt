@@ -187,6 +187,9 @@
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+      <metal:tag metal:define-slot="scripts">
+          <!-- default scripts: empty -->
+      </metal:tag>
     <template tal:replace="string:" name="Шаблоны всякие разные">
         <metal:tag metal:define-macro="table" data-remark="Шаблон таблицы">
         <table class="table text-sm-left">
