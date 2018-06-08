@@ -98,16 +98,18 @@
   <metal:tag metal:fill-slot="scripts">
       <script type="text/javascript">
        $(document).ready(function(){
-           // $("#result-display").text("asd");
+           var guid = $("#result-display").data("guid");
            setTimeout(function () {
-               var guid = $("#result-display").data("guid");
                $.ajax({
+                   method:"GET",
                    url: "/sneak/"+guid,
-                   data: {},
                    success: function(resdata, textStatus, jqXHR) {
                        $("#result-display").html(resdata);
                    },
-                   dataType: String
+                   error: function(jqXHR, textStatus, errorThrown) {
+                       alert("Error: "+textStatus+" "+errorThrown);
+                   },
+                   dataType: "html"
                });
            }, 2000);
        });
