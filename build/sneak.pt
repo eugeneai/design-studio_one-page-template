@@ -1,11 +1,38 @@
 <!doctype html>
-<html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      >
-    <dev is="result">
-        <h1>Ав от и результат!!</h1>
-    </dev>
-</html>
+<h2>Рекомендуем посмотреть следующие объекты:</h2>
+<div lang="en"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:metal="http://xml.zope.org/namespaces/metal"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+    <table
+        class="table text-sm-left"
+    >
+        <thead>
+            <th>Объект</th>
+            <th>Комн</th>
+            <th>Площ</th>
+            <th>Регион</th>
+            <th>Адрес</th>
+            <th>Мат</th>
+            <th>Этаж</th>
+            <th class="text-sm-right">Цена</th>
+        </thead>
+        <tbody>
+            <tr tal:repeat="offer model.Objects">
+                <span tal:omit-tag="default" tal:define="obj offer.Object; objview view.AsObjectView(offer)">
+                    <th tal:content="objview.RuCategory">Квартира</th>
+                    <td tal:content="objview.ROR" class="text-sm-right">9к</td>
+                    <td tal:content="obj.Area">190</td>
+                    <td title="Завеличи (Псков)"
+                        tal:attributes="title obj.Location.SubLocalityName"
+                    ><strong tal:content="objview.SubLoc" class="rspo-blue">Свердловкий</strong></td>
+                    <td><a tal:content="obj.Address" tal:attributes="href string:/offer/${offer.GUID}" class="text-sm-left">Маршала Конева улица...</a></td>
+                    <td tal:content="objview.RuType">Дуб</td>
+                    <td tal:content="objview.FOF">Этаж/Этажи</td>
+                    <td class="text-sm-right"><strong tal:content="objview.Price" >1 000 000</strong></td>
+                </span>
+            </tr>
+        </tbody>
+    </table>
+</div>
